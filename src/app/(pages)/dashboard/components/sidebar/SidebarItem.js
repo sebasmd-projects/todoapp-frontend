@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function SidebarItem({ icon, path, title }) {
   const pathName = usePathname();
+  const [counter, setCounter] = useState(0);
 
   return (
     <>
@@ -21,7 +23,12 @@ export default function SidebarItem({ icon, path, title }) {
           `}
         >
           {icon}
-          <span className="-mr-1 font-medium">{title}</span>
+          <span
+            className="-mr-1 font-medium"
+            onClick={() => setCounter(counter + 1)}
+          >
+            {title} - {counter}
+          </span>
         </Link>
       </li>
     </>

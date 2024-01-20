@@ -1,28 +1,10 @@
 import { TodosGrid } from "./components";
+import { getAllData } from "./components/ListTodo";
 
 export const metadata = {
   title: "Listado de ToDos",
   description: "Listado de ToDos",
 };
-
-async function getAllData() {
-  let allData = [];
-  let nextPage = "http://localhost:8000/api/todos/todo/";
-
-  while (nextPage) {
-    const res = await fetch(nextPage, { cache: "no-store" });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const result = await res.json();
-    allData = allData.concat(result.results);
-    nextPage = result.next;
-  }
-
-  return allData;
-}
 
 export default async function TodosV2Page() {
   const data = await getAllData();
@@ -53,6 +35,7 @@ export default async function TodosV2Page() {
           se actualiza la misma o una diferente no se va a ver reflejado hasta
           no actualizar una de todos v1
         </li>
+        <li>Se demora para entrar a la pág</li>
       </ol>
     </>
   );

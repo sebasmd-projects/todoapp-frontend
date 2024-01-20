@@ -18,7 +18,6 @@ export default function TodosItem({ todo, updateTodo }) {
     <div className={isComplete ? styles.todoDone : styles.todoPending}>
       <div className="flex flex-col sm:flex-row justify-start items-center gap-4">
         <div
-          checked={isComplete}
           onClick={handleCheckboxChange}
           className={`
             flex p-2 rounded-md cursor-pointer

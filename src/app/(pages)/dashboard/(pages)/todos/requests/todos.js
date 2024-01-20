@@ -1,3 +1,5 @@
+import { BASE_API } from "@/utils/constants";
+
 const sleep = (seconds) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -7,7 +9,7 @@ const sleep = (seconds) => {
 };
 
 export const updateTodo = async (uuid, complete) => {
-  const todo = await fetch(`http://localhost:8000/api/todos/todo/${uuid}/`, {
+  const todo = await fetch(`${BASE_API}/todos/todo/${uuid}/`, {
     method: "PATCH",
     body: JSON.stringify({ complete }),
     headers: {

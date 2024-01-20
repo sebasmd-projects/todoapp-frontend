@@ -24,7 +24,7 @@ export function TodosGrid({ todos: initialTodos = [] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
       {localTodos.map((todo) => (
-        <TodoItem key={todo.uuid} todo={todo} toggleTodo={toggleTodo} />
+        <TodoItem key={todo.uuid} todo={todo} updateTodo={toggleTodo} />
       ))}
     </div>
   );
