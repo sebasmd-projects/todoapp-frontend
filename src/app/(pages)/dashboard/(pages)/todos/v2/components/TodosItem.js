@@ -31,11 +31,8 @@ export default function TodosItem({ todo, updateTodo }) {
             <CiSquareRemove size={30} />
           )}
         </div>
+        <div className="text-center sm:text-left">{todo.title}</div>
       </div>
-
-      <span className={`ml-2 ${isComplete ? "line-through" : ""}`}>
-        {todo.title}
-      </span>
     </div>
   );
 }

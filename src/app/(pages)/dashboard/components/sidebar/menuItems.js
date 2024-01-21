@@ -1,6 +1,7 @@
 import { GrTransaction } from "react-icons/gr";
 import { LuListTodo } from "react-icons/lu";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { VscServerProcess } from "react-icons/vsc";
 
 export default function MenuItems() {
   return [
@@ -23,6 +24,11 @@ export default function MenuItems() {
       icon: <GrTransaction size={30} />,
       title: "Server Actions",
       path: "/dashboard/actions",
+    },
+    {
+      icon: <VscServerProcess size={30} />,
+      title: "Peticiones",
+      path: "/dashboard/logs",
     },
   ];
 }

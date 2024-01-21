@@ -31,7 +31,6 @@ export default function TodoItem({ todo, updateTodo }) {
             <CiSquareRemove size={30} />
           )}
         </div>
-
         <div className="text-center sm:text-left">{todo.title}</div>
       </div>
     </div>

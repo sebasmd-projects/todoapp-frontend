@@ -8,7 +8,7 @@ export const metadata = {
 export default function TodosPage() {
   return (
     <>
-      <h1 className="text-3xl">Todos Page</h1>
+      <h1 className="text-2xl">Todos Page</h1>
       <ListTodo />
       <ol className="list-decimal list-inside mt-3">
         <li>Se realiza la petición GET cada que se accede a la ruta</li>
