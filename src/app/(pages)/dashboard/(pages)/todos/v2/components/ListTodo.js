@@ -2,10 +2,12 @@
 import { BASE_API } from "@/utils/constants";
 import { useEffect, useState } from "react";
 import { updateTodo } from "../../requests/todos";
+import Loading from "../loading";
 import { TodosGrid } from "./TodosGrid";
 
 export function ListTodo() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +23,23 @@ export function ListTodo() {
         }
 
         setData(allResults);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  return <TodosGrid todos={data} updateTodo={updateTodo} />;
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <TodosGrid todos={data} updateTodo={updateTodo} />
+      )}
+    </>
+  );
 }

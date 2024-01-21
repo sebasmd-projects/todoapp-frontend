@@ -4,13 +4,21 @@ import styles from "./css/TodoItem.module.css";
 
 export default function TodoItem({ todo, updateTodo }) {
   const [isComplete, setIsComplete] = useState(todo.complete);
+  const [isChanging, setIsChanging] = useState(false);
 
   const handleCheckboxChange = async () => {
+    if (isChanging) {
+      return;
+    }
+
     try {
+      setIsChanging(true);
       const updatedTodo = await updateTodo(todo.uuid, !isComplete);
       setIsComplete(updatedTodo.complete);
     } catch (error) {
       console.error("Error updating todo:", error);
+    } finally {
+      setIsChanging(false);
     }
   };
 
