@@ -5,8 +5,11 @@
         "./src/*"
       ],
       "@utils/*": [
-        "./utils/*"
-      ]
+        "./src/utils/*"
+      ],
+      "@todo/requests/*": [
+        "./src/app/(pages)/dashboard/(pages)/todos/requests/*"
+      ],
     }
   }
 }

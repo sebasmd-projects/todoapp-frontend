@@ -13,8 +13,8 @@ export default function TodoItem({ todo, updateTodo }) {
 
     try {
       setIsChanging(true);
-      const updatedTodo = await updateTodo(todo.uuid, !isComplete);
-      setIsComplete(updatedTodo.complete);
+      await updateTodo(todo.uuid, !todo.complete);
+      setIsComplete(!todo.complete);
     } catch (error) {
       console.error("Error updating todo:", error);
     } finally {
@@ -30,7 +30,7 @@ export default function TodoItem({ todo, updateTodo }) {
           className={`
             flex p-2 rounded-md cursor-pointer
             hover:bg-opacity-60
-            ${todo.complete ? "bg-blue-100" : "bg-red-100"}
+            ${todo.complete ? "bg-green-100" : "bg-red-100"}
         `}
         >
           {todo.complete ? (
@@ -39,7 +39,8 @@ export default function TodoItem({ todo, updateTodo }) {
             <CiSquareRemove size={30} />
           )}
         </div>
-        <div className="text-center sm:text-left">{todo.title}</div>
+        <div className="text-1xl text-left">{todo.title}</div>
+        <div className="text-left">{todo.description}</div>
       </div>
     </div>
   );
